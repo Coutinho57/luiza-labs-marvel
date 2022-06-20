@@ -19,11 +19,10 @@ function generatePagesArray(from: number, to: number) {
 function Pagination({
   totalCountOfRegisters = 1,
   currentPage = 1,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onPageChange = () => {},
   registerPerPage = 10,
 }: IPaginationProps) {
-  const siblingsCount = 2;
+  const siblingsCount = 1;
 
   const lastPage = Math.ceil(totalCountOfRegisters / registerPerPage);
 
