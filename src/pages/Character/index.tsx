@@ -57,8 +57,6 @@ function Character() {
     () => getComics(Number(id)),
   );
 
-  // console.log('comiii', comicsz);
-
   const favorited = useMemo(() => {
     return favorites.some(item => item.id === Number(id));
   }, [favorites, id]);
