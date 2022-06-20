@@ -11,6 +11,7 @@ export default createGlobalStyle`
     height: 100%
   }
   body {
+    font-family: 'Roboto', sans-serif;
     background-color: #fff;
     color: #000;
     -webkit-font-smoothing: antialiased;

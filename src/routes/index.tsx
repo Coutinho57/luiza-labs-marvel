@@ -5,34 +5,21 @@ import {
   Route,
   Routes as RoutesRouter,
 } from 'react-router-dom';
-import { useAuth } from 'src/context/AuthContext';
-import { authenticatedRoutes } from './authenticatedRoutes';
-import { inauthenticatedRoutes } from './inauthenticatedRoutes';
+import { allRoutes } from './routes';
 
 function Routes() {
-  const { user } = useAuth();
-
   return (
     <Suspense fallback={<div>Loading... </div>}>
       <BrowserRouter>
         <RoutesRouter>
-          {!user &&
-            inauthenticatedRoutes.map(({ path, Component }) => (
-              <Route
-                path={path}
-                element={<Component />}
-                key={`keyInauthenticatedRoutes-${path}`}
-              />
-            ))}
-          {user &&
-            authenticatedRoutes.map(({ path, Component }) => (
-              <Route
-                path={path}
-                element={<Component />}
-                key={`keyAuthenticatedRoutes-${path}`}
-              />
-            ))}
-          <Route path="*" element={<Navigate to={user ? '/' : '/login'} />} />
+          {allRoutes.map(({ path, Component }) => (
+            <Route
+              path={path}
+              element={<Component />}
+              key={`keyAuthenticatedRoutes-${path}`}
+            />
+          ))}
+          <Route path="*" element={<Navigate to="/" />} />
         </RoutesRouter>
       </BrowserRouter>
     </Suspense>
